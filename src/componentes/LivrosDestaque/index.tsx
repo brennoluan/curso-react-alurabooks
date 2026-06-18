@@ -26,7 +26,7 @@ const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
     <section className="LivrosDestaque">
       <div>
         <ul className="livros">
-          {livros.map((livro) => {
+          {livros.map((livro: ILivro) => {
             return (
               <li
                 key={livro.titulo}
