@@ -9,16 +9,17 @@ import { useQuery } from '@tanstack/react-query';
 
 import './Home.css';
 import { obterLivrosDestaque } from '../../http';
+import { ILivro } from '../../interfaces/ILivro';
 
 const Home = () => {
   const [busca, setBusca] = useState('');
 
   const { data: lancamentos } = useQuery({
     queryKey: ['destaques'],
-    queryFn: () => () => obterLivrosDestaque('lancamentos'),
+    queryFn: () => obterLivrosDestaque('lancamentos'),
   });
 
-  const { data: maisVendidos } = useQuery({
+  const { data: maisVendidos } = useQuery<ILivro[]>({
     queryKey: ['maisVendidos'],
     queryFn: () => obterLivrosDestaque('mais-vendidos'),
   });
